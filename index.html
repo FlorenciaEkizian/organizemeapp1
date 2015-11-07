@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Organize Me</title>
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Squada+One' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Russo+One' rel='stylesheet' type='text/css'>
+    
+</head>
+
+<body>
+    
+    <!------------    LOGIN    !------------>
+	<div data-role="page" id="inicio">
+	    
+            <div id="fondo-login">
+
+<!--- HEADER !-->
+            <div data-role="header" class="none">
+            <img id="logo" src="img/logo.png">
+            </div>
+
+
+            <!--- CONTENIDO !-->
+            <div data-role="content">	
+            <form id="formulario" >
+            <input type="text" id="nombredeusuario" name="nombredeusuario">
+            <input type="password" id="clave" name="clave">
+            <input type="submit" value="Login">
+            <input type="button" value="Registrarse">
+            </form>	
+            </div>
+            </div>
+        
+	</div>
+
+    
+    <!------------    POPULAR    !------------>
+	<div data-role="page" id="home" class="page">
+	           
+        
+            <!--- HEADER !-->
+            <div data-role="header" class="none topbar">
+            <h1 id="titulo">Popular</h1>
+            </div>
+        
+            <!--- MENU GENEROS !-->
+            <div class="menu-generos">
+            <ul class="ul-generos"></ul>
+            </div>
+        
+        
+            <!--- MENU NAVEGACION !-->
+            <div class="menu-nav">
+            <div class="btn-menu-nav">
+            <a href="#home" data-transition="slideup"><div class="img-btn btn-popular-a"></div></a>
+            </div>
+            <div class="btn-menu-nav">
+            <a href="#favorito" data-transition="slideup"><div class="img-btn btn-favorite-o"></div></a>
+            </div>
+            <a href="#preferencias" data-transition="slideup"><div class="btn-menu-nav">
+            <div class="img-btn btn-preferencias-o"></div></a>
+            </div>
+            </div>
+        
+        
+            <!--- CONTENIDO !-->
+		    <div data-role="content" class="secciones">	
+             
+            <ul id="proyectos"> 
+            </ul>   
+
+		    </div>
+ 
+	</div>
+    
+
+    <!------------    ARTICULO    !------------>
+	<div data-role="page" id="articulo" class="page" data-add-back-btn="true">
+	        <div id="bg-article">
+                
+            <!--- CONTENIDO !-->
+		    <div data-role="content">
+            <div id="portada">
+            <a href="#" data-icon="back" data-rel="back" title="Volver" id="back-btn"><div></div></a>
+		    <img id="cover-article"/>
+            <div id="info-article">
+            <p id="category-article"></p>
+            <h1 id="title-article"></h1>
+            </div>
+            </div>
+            <div id="contenido-article">
+            <div id="fav-btn"><div></div></div>
+            <p id="published">Publicado: </p><p id="date-article"></p>
+            <div id="text-article"></div>
+            <a id="dwn-btn" href="#">Descargar</a>
+   	        </div>
+            </div>
+		    </div>
+
+	</div>
+
+    <!------------    FAVORITOS    !------------>
+	<div data-role="page" id="favorito" class="page">
+	           
+        
+            <!--- HEADER !-->
+            <div data-role="header" class="none topbar">
+            <h1 id="titulo">Favoritos</h1>
+            </div>
+		 
+            <!--- MENU NAVEGACION !-->
+            <div class="menu-nav">
+            <div class="btn-menu-nav">
+            <a href="#home" data-transition="slideup"><div class="img-btn btn-popular-o"></div></a>
+            </div>
+            <div class="btn-menu-nav">
+            <a href="#favorito" data-transition="slideup"><div class="img-btn btn-favorite-a"></div></a>
+            </div>
+            <a href="#preferencias" data-transition="slideup"><div class="btn-menu-nav">
+            <div class="img-btn btn-preferencias-o"></div></a>
+            </div>
+            </div>
+        
+        
+            <!--- CONTENIDO !-->
+		    <div data-role="content" class="secciones">	
+		    <ul id="articulos-favoritos"></ul>
+		    </div>
+ 
+	</div>
+    
+    
+    
+    <!------------    PREFERENCIAS    !------------>
+	<div data-role="page" id="preferencias" class="page">
+	           
+        
+            <!--- HEADER !-->
+            <div data-role="header" class="none topbar">
+            <h1 id="titulo">Preferencias</h1>
+            </div>
+		 
+            <!--- MENU NAVEGACION !-->
+            <div class="menu-nav">
+            <div class="btn-menu-nav">
+            <a href="#home" data-transition="slideup"><div class="img-btn btn-popular-o"></div></a>
+            </div>
+            <div class="btn-menu-nav">
+            <a href="#favorito" data-transition="slideup"><div class="img-btn btn-favorite-o"></div></a>
+            </div>
+            <a href="#preferencias" data-transition="slideup"><div class="btn-menu-nav">
+            <div class="img-btn btn-preferencias-a"></div></a>
+            </div>
+               
+            </div>
+        
+        
+            <!--- CONTENIDO !-->
+		    <div data-role="content" class="secciones">	
+		    
+            <div id="opciones-preferencias">
+                    
+                    <ul id="lista-generos">
+                    </ul>
+                    <a class="guardarbtn" href="javascript:updateGeneros();">Guardar</a>
+            </div> 
+		    </div>
+ 
+	</div>    
+    
+
+<script>
+    
+    
+    
+    
+    
+	$('#formulario').submit(function() {
+	// recolecta los valores que inserto el usuario
+	var datosUsuario = $("#nombredeusuario").val()
+	var datosPassword = $("#clave").val()
+
+    var homeLoaded = false;
+    var favoritesLoaded = false;
+	archivoValidacion = "http://organizeme.com.ar/services/validacionReal.php?jsoncallback=?" 
+	 
+	$.getJSON( archivoValidacion, { usuario:datosUsuario ,password:datosPassword}) 
+	.done(function(respuestaServer) {
+        
+        // Guardo en variable publica el id del usuario logueado
+        idUsuario = respuestaServer.usuario;
+        //console.log(idUsuario);
+
+		if(respuestaServer.validacion == "ok"){ 
+			$.mobile.changePage("#home"); // Redirige a esa page automaticamente va una vez
+			$("#home").on("pageshow", function(){ //al mostrarse esa pagina pasa algo.
+				// $("#titulo").append("Bienvenido, "+ respuestaServer[0].idUsuario);
+                var elementos = Object.keys(respuestaServer).length;
+				for(var i=0; i< elementos-1 ; i++){
+                    //CAMBIAR ACA LOS VALORES DE MI CONSULTA
+                     $('#proyectos').append(
+                    '<li class="proyectos"><a class="atareas" href="' + respuestaServer[i].idProyecto + '">' +
+					'<h1>' + respuestaServer[i].nombreProyecto + '</h1>' +
+					'</span></a></li>');
+				}
+			});  
+		
+            /*
+			$("#favorito").on("pageshow", function(){ //al mostrarse esa pagina pasa algo.
+                if(favoritesLoaded == false){ // Reviso si ya lo cargo una vez
+                var elementosF = Object.keys(respuestaServer["favoritos"]).length;
+
+				for(var i=0; i< elementosF ; i++){
+                    
+                    var nombresCatsFav = "";
+                    var arrCategoriasFav = respuestaServer["favoritos"][i].categorias;
+
+                    for(var c=0; c< arrCategoriasFav.length ; c++){
+                            if(c == 0){
+                                nombresCatsFav = arrCategoriasFav[c].nombreCAT;
+                            }else{
+                                nombresCatsFav = nombresCatsFav + ", " + arrCategoriasFav[c].nombreCAT;
+                            }
+                    }
+                    
+                    var nombresGensFav = "";
+                    var arrGenerosFav = respuestaServer["favoritos"][i].generos;
+
+                    for(var g=0; g< arrGenerosFav.length ; g++){
+                            if(g == 0){
+                                nombresGensFav = arrGenerosFav[g].nombreGEN;
+                            }else{
+                                nombresGensFav = nombresGensFav + ", " + arrGenerosFav[g].nombreGEN;
+                            }
+                    }
+                    
+                    
+                    
+                     $('#articulos-favoritos').append(
+                    '<li class="articulo-favorito"><a data-transition="flip" href="javascript:openArticle(' + respuestaServer["favoritos"][i].idArticulo + ');">' +     
+					'<img src="/indie/' + respuestaServer["favoritos"][i].imagen + '"/>' +
+					'<h1>' + respuestaServer["favoritos"][i].tituloES + '</h1>' +
+                    '<p class="genero">' + nombresGensFav + '</p>' +
+                    '<p class="categoria">' + nombresCatsFav + '</p>' +
+					'</span></a></li>');
+				}
+                
+                    
+                favoritesLoaded = true;
+                }
+			});   
+            */
+            
+            /*
+            $("#preferencias").on("pageshow", function(){ //al mostrarse esa pagina pasa algo.
+                $('#lista-generos li').remove();
+                var cantGenPref = Object.keys(respuestaServer["generosprefe"]).length;
+                var cantListaGeneros = Object.keys(respuestaServer["listageneros"]).length;
+                
+                var arrayListaGeneros = new Array();
+                var arrayGenPref = new Array();
+                //var arrayListaGeneros = ["Accion","Rol","Aventura"];
+                
+                // Hago un array con todos los generos que existen
+                for(var lg=0; lg< cantListaGeneros ; lg++ ){
+                    //var arrayListaGeneros[] = respuestaServer["listageneros"][lg].nombreES;
+                    arrayListaGeneros.push(respuestaServer["listageneros"][lg].nombreES);
+                }
+                   
+                // Hago un array con los generos del usuario logueado
+				for(var p=0; p< cantGenPref ; p++){     
+                        arrayGenPref.push(respuestaServer["generosprefe"][p].nombreES);
+				}
+                
+                
+                // Genero lista de generos
+                for(var ar=0; ar< cantListaGeneros ; ar++){
+                  $('#lista-generos').append(
+                         '<li class="li-pref">' +
+                         '<img class="img-pref" src="img/preferencias/gen'+respuestaServer["listageneros"][ar].idGenero+'.png"/>' +
+                         '<h1>' + respuestaServer["listageneros"][ar].nombreES + '</h1>' + 
+                         '<label class="switch-box">'+
+                         '<input class="ios-switch green" id="check'+ respuestaServer["listageneros"][ar].idGenero +'" type="checkbox" name="check_list[]" value="'+ respuestaServer["listageneros"][ar].idGenero +'">'+'<div class="warer">'+'<div>'+'</div>'+'</div>'+'</input>' + '</label>' +
+                    '</li>');
+                    
+                    
+                    // Comparo si el genero esta en la lista de generos si es asi lo pongo como checked
+                    if($.inArray(respuestaServer["listageneros"][ar].nombreES, arrayGenPref) != -1) {
+                        //console.log("is in array");
+                        $('#check' + respuestaServer["listageneros"][ar].idGenero).prop("checked", true);
+                    }else {
+                        //console.log("is NOT in array");
+                    }
+                    
+                }
+                
+                
+                //$('#lista-generos').listview('refresh');
+			}); 
+             */
+
+                /* Esto guarda en el localstorage */
+                var datosLocales = JSON.stringify(respuestaServer);
+                localStorage.setItem("datos", datosLocales);
+            
+                if(navigator.offline){
+                    //alert("No hay señal");
+                }else{
+                    //alert("Si hay señal");   
+                }
+            
+                /* Esto es para leer y va en otra parte */
+                var datosGuardados = localStorage.getItem("datos");
+                var datosObjeto = JSON.parse(datosGuardados);
+                
+            
+	}else{
+
+	    alert("no");
+	}
+	})
+
+
+	return false;
+	})
+
+    
+    $("#preferencias").on("pageshow", function(){ //al mostrarse esa pagina pasa algo.
+        $.getJSON('http://indiegamesattack.tk/appindie/updategeneros.php?id='+idUsuario, function(data) {
+                $('#lista-generos li').remove();
+                var cantGenPref = Object.keys(data["generosprefe"]).length;
+                var cantListaGeneros = Object.keys(data["listageneros"]).length;
+                
+                var arrayListaGeneros = new Array();
+                var arrayGenPref = new Array();
+                //var arrayListaGeneros = ["Accion","Rol","Aventura"];
+                
+                // Hago un array con todos los generos que existen
+                for(var lg=0; lg< cantListaGeneros ; lg++ ){
+                    //var arrayListaGeneros[] = respuestaServer["listageneros"][lg].nombreES;
+                    arrayListaGeneros.push(data["listageneros"][lg].nombreES);
+                }
+                   
+                // Hago un array con los generos del usuario logueado
+				for(var p=0; p< cantGenPref ; p++){     
+                        arrayGenPref.push(data["generosprefe"][p].nombreES);
+				}
+                
+                
+                // Genero lista de generos
+                for(var ar=0; ar< cantListaGeneros ; ar++){
+                  $('#lista-generos').append(
+                         '<li class="li-pref">' +
+                         '<img class="img-pref" src="img/preferencias/gen'+data["listageneros"][ar].idGenero+'.png"/>' +
+                         '<h1>' + data["listageneros"][ar].nombreES + '</h1>' + 
+                         '<label class="switch-box">'+
+                         '<input class="ios-switch green" id="check'+ data["listageneros"][ar].idGenero +'" type="checkbox" name="check_list[]" value="'+ data["listageneros"][ar].idGenero +'">'+'<div class="warer">'+'<div>'+'</div>'+'</div>'+'</input>' + '</label>' +
+                    '</li>');
+                    
+                    
+                    // Comparo si el genero esta en la lista de generos si es asi lo pongo como checked
+                    if($.inArray(data["listageneros"][ar].nombreES, arrayGenPref) != -1) {
+                        //console.log("is in array");
+                        $('#check' + data["listageneros"][ar].idGenero).prop("checked", true);
+                    }else {
+                        //console.log("is NOT in array");
+                    }
+                    
+                }
+                
+                });
+                //$('#lista-generos').listview('refresh');
+			}); 
+    
+    
+    $("#favorito").on("pageshow", function(){ //al mostrarse esa pagina pasa algo.
+                $.getJSON('http://indiegamesattack.tk/appindie/pedirfavoritos.php?usuario='+idUsuario, function(data) {
+                $('#articulos-favoritos li').remove();
+                var elementosF = Object.keys(data["favoritos"]).length;
+
+				for(var i=0; i< elementosF ; i++){
+                    
+                    var nombresCatsFav = "";
+                    var arrCategoriasFav = data["favoritos"][i].categorias;
+
+                    for(var c=0; c< arrCategoriasFav.length ; c++){
+                            if(c == 0){
+                                nombresCatsFav = arrCategoriasFav[c].nombreCAT;
+                            }else{
+                                nombresCatsFav = nombresCatsFav + ", " + arrCategoriasFav[c].nombreCAT;
+                            }
+                    }
+                    
+                    var nombresGensFav = "";
+                    var arrGenerosFav = data["favoritos"][i].generos;
+
+                    for(var g=0; g< arrGenerosFav.length ; g++){
+                            if(g == 0){
+                                nombresGensFav = arrGenerosFav[g].nombreGEN;
+                            }else{
+                                nombresGensFav = nombresGensFav + ", " + arrGenerosFav[g].nombreGEN;
+                            }
+                    }
+                    
+                    
+                    
+                     $('#articulos-favoritos').append(
+                    '<li class="articulo-favorito"><a data-transition="flip" href="javascript:openArticle(' + data["favoritos"][i].idArticulo + ');">' +     
+					'<img src="/indie/' + data["favoritos"][i].imagen + '"/>' +
+					'<h1>' + data["favoritos"][i].tituloES + '</h1>' +
+                    '<p class="genero">' + nombresGensFav + '</p>' +
+                    '<p class="categoria">' + nombresCatsFav + '</p>' +
+					'</span></a></li>');
+				}
+                
+                $('#articulos-favoritos').listview('refresh');   
+                });
+			});
+    
+    
+    
+    
+    //var serviceURL = "http://localhost/appiga/";
+    
+    function openArticle(queId)
+    {
+	$.getJSON('http://indiegamesattack.tk/appindie/cargararticulo.php?id='+queId+'&idu='+idUsuario, cargarArticulo);  
+    $.mobile.changePage("#articulo");
+    }
+    
+    
+function cargarArticulo(data) {
+    
+    var nombresCatsArt = "";
+    var arrCategoriasArt = data["articulo"][0].categorias;
+    
+        for(var z=0; z< arrCategoriasArt.length ; z++){
+            if(z == 0){
+                nombresCatsArt = arrCategoriasArt[z].nombreCAT;
+            }else{
+                nombresCatsArt = nombresCatsArt + ", " + arrCategoriasArt[z].nombreCAT;
+            }
+        }
+    
+    
+    /*
+    * Para remplazar un texto por espacio en blanco en jquery
+    var someVariable = data["articulo"][0].contenidoES;
+    someVariable = someVariable.replace('<p>', '');
+    someVariable = someVariable.replace('</p>', '');
+    $('#text-article').text(someVariable);
+    */
+    
+    
+    //var textoArt = data["articulo"][0].contenidoES;
+    //jQuery('<div />').text(textoArt).html();
+    //alert(textoArt);
+    //jQuery('<div />').html(textoArt).text() //
+    
+    $('#category-article').text(nombresCatsArt);
+    $('#title-article').text(data["articulo"][0].tituloES);
+	$('#cover-article').attr('src', '/indie/' + data["articulo"][0].portada);
+	//$('#fav-btn').attr('href', 'marcarFavorito('+data["articulo"][0].idArticulo+')');
+	$('#date-article').text(data["articulo"][0].fecha);
+	$('#text-article').html(data["articulo"][0].contenidoES);
+    
+    $('#dwn-btn').attr('href', data["articulo"][0].url);
+    //$('#fav-btn').attr('onclick', 'marcarFavorito('+data["articulo"][0].idArticulo+')');
+    
+    var esFav = data["esfav"][0].idUsuario;
+    var resFav = data["esfav"][0];
+    //console.log(resFav);
+    
+    if(esFav == idUsuario){
+       //console.log("ES FAVORITO ESTE ARTICULO");
+       $("#fav-btn").css("background-color", "#fed574");
+       $('#fav-btn').attr('onclick', 'eliminarFavorito('+data["articulo"][0].idArticulo+')');
+    }
+    
+     if(resFav == "no"){
+       //console.log("NO ES FAVORITO ESTE ARTICULO"); 
+        $("#fav-btn").css("background-color", "#f6b723");
+        $('#fav-btn').attr('onclick', 'marcarFavorito('+data["articulo"][0].idArticulo+')');
+    }
+    
+
+    //console.log(data["esfav"][0].idUsuario);
+    
+   
+    
+    
+        
+
+    
+}
+    
+
+    
+    
+function pedirArticulos(parameterGenre){
+     $.getJSON('http://indiegamesattack.tk/appindie/cargargeneros.php?id='+parameterGenre, function(data) {
+         var cantArticulos = Object.keys(data["articulos"]).length;
+         $('#articulos-populares li').remove();
+
+             for(var i=0; i< cantArticulos ; i++){
+                 var nombresCats = "";
+                 var arrCategorias = data["articulos"][i].categorias;
+
+                     for(var e=0; e< arrCategorias.length ; e++){
+                     if(e == 0){
+                     nombresCats = arrCategorias[e].nombreCAT;
+                     }else{
+                     nombresCats = nombresCats + ", " + arrCategorias[e].nombreCAT;
+                     }
+                     }
+
+                 $('#titulo').text(data["articulos"][i].nombreES);
+                 $('#articulos-populares').append(
+                 '<li class="articulo-popular">' +
+                 '<a href="javascript:openArticle(' + data["articulos"][i].idArticulo + ');">' +
+                 '<p class="genero">' + nombresCats + '</p>' +   
+                 '<img src="/indie/' + data["articulos"][i].imagen + '"/>' +
+                 '<h1>' + data["articulos"][i].tituloES + '</h1>' +
+                 '</span></a></li>');
+             }
+
+         $('#articulos-populares').listview('refresh');
+         });
+ 
+    }
+    
+    
+    function updateGeneros(){
+        $.getJSON('http://indiegamesattack.tk/appindie/updategeneros.php?id='+idUsuario, function(gendata) {  
+                var cantGenPref = Object.keys(gendata["generosprefe"]).length;
+                var cantListaGeneros = Object.keys(gendata["listageneros"]).length;
+                
+                var arrayListaGeneros = new Array();
+                var arrayGenPref = new Array();
+                
+                // Hago un array con todos los generos que existen
+                for(var lg=0; lg< cantListaGeneros ; lg++ ){
+                    //var arrayListaGeneros[] = respuestaServer["listageneros"][lg].nombreES;
+                    arrayListaGeneros.push(gendata["listageneros"][lg].nombreES);
+                    //console.log(gendata["listageneros"][lg].nombreES); 
+                }
+                   
+                // Hago un array con los generos del usuario logueado
+				for(var p=0; p< cantGenPref ; p++){ 
+                    arrayGenPref.push(gendata["generosprefe"][p].idGenero);
+                    //console.log("Se agrega a ARRAY de  generos prefidos: " + gendata["generosprefe"][p].idGenero); 
+				}
+            
+                var arrayCheckedGens = new Array();
+                var arrayNOCheckedGens = new Array();
+                    
+            
+                     // Meto en arrays de arriba los generos checkeados y no checkeados
+                     for(var i=0; i< cantListaGeneros + 2 ; i++){
+                     if($('#check'+ i).is(':checked')){
+                         arrayCheckedGens.push(i);
+                         //console.log("Genero: " + i + " SI esta checkeado");
+                     }else{
+                         //console.log("Genero: " + i + " NO esta checkeado");
+                         arrayNOCheckedGens.push(i);
+                     }
+                     }
+            
+                    // Reviso si los generos checkeados YA ESTAN en los prefiridos del usuario
+                    for(var acg=0; acg< arrayCheckedGens.length ; acg++){
+                    if(jQuery.inArray(String(arrayCheckedGens[acg]), String(arrayGenPref)) == -1) {
+                        //console.log(arrayCheckedGens[acg] + " NO estoy");
+                        // Como no esta en sus preferidos lo agrego.
+                        //agregarGenPerte(arrayCheckedGens[acg]);
+                        $.getJSON('http://indiegamesattack.tk/appindie/agregarprefe.php?idusu='+idUsuario+'&idgen='+arrayCheckedGens[acg], final);
+                    }else{
+                        // Si ya esta no hago nada
+                        //console.log(arrayCheckedGens[acg] + " si estoy");    
+                    }
+                    }
+            
+            
+                    // Reviso si los generos checkeados YA ESTAN en los prefiridos del usuario
+                    for(var ancg=0; ancg< arrayNOCheckedGens.length ; ancg++){
+                    if(jQuery.inArray(String(arrayNOCheckedGens[ancg]), String(arrayGenPref)) == -1) {
+                        // No esta checkado y no esta en los preferidos no hago nada.
+                    }else{
+                        // No esta checkado y si esta en sus generos preferidos, LO ELIMINO.
+                         $.getJSON('http://indiegamesattack.tk/appindie/eliminarprefe.php?idusu='+idUsuario+'&idgen='+arrayNOCheckedGens[ancg], final);
+                    }
+                    }
+            
+            
+        });  
+    }
+    
+    
+    function marcarFavorito(queArt){
+        
+        $("#fav-btn").css("background-color", "#fed574");
+        $('#fav-btn').attr('onclick', 'eliminarFavorito('+queArt+')');
+         $.getJSON('http://indiegamesattack.tk/appindie/marcarfavorito.php?usuario='+idUsuario+'&articulo='+queArt, function(data) {
+         });
+        //console.log(queArt);
+    }
+    
+
+        
+    
+    function eliminarFavorito(queArt){
+         $("#fav-btn").css("background-color", "#f6b723");
+         $('#fav-btn').attr('onclick', 'marcarFavorito('+queArt+')');
+         $.getJSON('http://indiegamesattack.tk/appindie/eliminarfavorito.php?usuario='+idUsuario+'&articulo='+queArt, function(data) {
+         });
+        //console.log(queArt);
+    }
+    
+    
+    // No utilizada
+    function agregarGenPerte(queGenero){
+       //$.getJSON(serviceURL + 'agregarprefe.php?idusu='+idUsuario+'&idgen='+queGenero, final); 
+    }
+    
+    function final(){
+        // no hago nada
+        
+    }
+    
+</script>
+    <script src="cordova.js"></script>
+</body>
+</html>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
